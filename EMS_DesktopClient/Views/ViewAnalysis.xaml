@@ -1,0 +1,135 @@
+﻿<UserControl x:Class="EMS_DesktopClient.Views.ViewAnalysis"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EMS_DesktopClient.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+             mc:Ignorable="d" 
+             d:DesignHeight="628" d:DesignWidth="1024"
+             MinHeight="628" MinWidth="1024"
+             FlowDirection="LeftToRight"
+             Padding="10">
+    <GroupBox Header="Analysis UI" Style="{DynamicResource MaterialDesignGroupBox}" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2.5*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0" Margin="5">
+                <dragablz:TabablzControl>
+                    <dragablz:TabablzControl.InterTabController>
+                        <dragablz:InterTabController/>
+                    </dragablz:TabablzControl.InterTabController>
+                    <TabItem Header="Graph">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Tabel">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <DataGrid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" ColumnWidth="*" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0 8 0 0" CanUserSortColumns="True" CanUserAddRows="False" IsReadOnly="True" CanUserDeleteRows="False" AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8" ItemsSource="{Binding PregnancyObservationCollection, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedPregnancyObservation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <DataGrid.Columns>
+                                    <materialDesign:MaterialDataGridTextColumn Width="Auto" Header="Meter" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+                                    <materialDesign:MaterialDataGridTextColumn Width="Auto" Header="Meter" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+                                    <materialDesign:MaterialDataGridTextColumn Width="Auto" Header="Value" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+                                    <materialDesign:MaterialDataGridTextColumn Width="Auto" Header="Value" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+                                    <materialDesign:MaterialDataGridTextColumn Width="Auto" Header="Zoning" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+                                    <materialDesign:MaterialDataGridTextColumn Width="Auto" Header="Zoning" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+                                    <materialDesign:MaterialDataGridTextColumn Width="Auto" Header="Zoning" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </TabItem>
+                </dragablz:TabablzControl>
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="1" Margin="0 10 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <DatePicker Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="From Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="5,0" VerticalAlignment="Bottom"  SelectedDate="{Binding SelectedFromDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <DatePicker Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="To Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="5,0" VerticalAlignment="Bottom" SelectedDate="{Binding SelectedToDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Margin="5,0" Content="Param 1"/>
+                <ToggleButton Grid.Row="1" Grid.Column="1" Style="{StaticResource MaterialDesignSwitchToggleButton}" VerticalAlignment="Bottom"/>
+                <Label Grid.Row="2" Grid.Column="0" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Margin="5,0" Content="Param 2"/>
+                <ToggleButton Grid.Row="2" Grid.Column="1" Style="{StaticResource MaterialDesignSwitchToggleButton}" VerticalAlignment="Bottom"/>
+                <Label Grid.Row="3" Grid.Column="0" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Margin="5,0" Content="Param 3"/>
+                <ToggleButton Grid.Row="3" Grid.Column="1" Style="{StaticResource MaterialDesignSwitchToggleButton}" VerticalAlignment="Bottom"/>
+                <Label Grid.Row="4" Grid.Column="0" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Margin="5,0" Content="Param 4"/>
+                <ToggleButton Grid.Row="4" Grid.Column="1" Style="{StaticResource MaterialDesignSwitchToggleButton}" VerticalAlignment="Bottom"/>
+                <ComboBox Grid.Row="5" Grid.Column="0" materialDesign:HintAssist.Hint="Axis one Time" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.FloatingScale="1.2" Margin="5,0" VerticalAlignment="Bottom"/>
+                <ComboBox Grid.Row="5" Grid.Column="1" materialDesign:HintAssist.Hint="Axis two Value" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.FloatingScale="1.2" Margin="5,0" VerticalAlignment="Bottom"/>
+                
+                <Button Grid.Row="7" Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" Content="Reset Default" HorizontalAlignment="Center" Width="124" Command="{Binding ResetCommand}"/>
+                <Button Grid.Row="7" Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" Content="Refresh" HorizontalAlignment="Center" Width="124" Command="{Binding RefreshCommand}"/>
+            </Grid>
+            <GroupBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Header="Reports" Style="{DynamicResource MaterialDesignGroupBox}" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0" Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Margin="5,0" Content="Color / BW"/>
+                    <ToggleButton Grid.Row="0" Grid.Column="1" Style="{StaticResource MaterialDesignSwitchToggleButton}" VerticalAlignment="Bottom"/>
+                    <Label Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Margin="5,0" Content="Graph / Tabel"/>
+                    <ToggleButton Grid.Row="1" Grid.Column="1" Style="{StaticResource MaterialDesignSwitchToggleButton}" VerticalAlignment="Bottom"/>
+                    
+                    <TextBox Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Save report location..." Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="32,0,2,0" VerticalAlignment="Center"/>
+                    <Button Grid.Row="0" Grid.Column="5" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" Content="..."  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Grid Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Button Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" Content="Refresh" Margin="30,0" Command="{Binding RefreshCommand}"/>
+                        <Button Grid.Row="0" Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" Content="Reset Default" Margin="30,0" Command="{Binding ResetCommand}"/>
+                    </Grid>
+                </Grid>
+            </GroupBox>
+        </Grid>
+    </GroupBox>
+</UserControl>
