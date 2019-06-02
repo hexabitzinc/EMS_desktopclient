@@ -14,6 +14,7 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -97,15 +98,60 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Helpers\PasswordHelper.cs" />
+    <Compile Include="Migrations\201906020859591_EMS_DesktopClient.cs" />
+    <Compile Include="Migrations\201906020859591_EMS_DesktopClient.Designer.cs">
+      <DependentUpon>201906020859591_EMS_DesktopClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ActionType.cs" />
+    <Compile Include="Models\Advertisement.cs" />
+    <Compile Include="Models\AdvertisementImage.cs" />
+    <Compile Include="Models\AdvertisementText.cs" />
+    <Compile Include="Models\Apartment.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\Building.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Color.cs" />
+    <Compile Include="Models\CommonLocation.cs" />
+    <Compile Include="Models\Consumer.cs" />
+    <Compile Include="Models\EMSDesktopClientInterface.cs" />
+    <Compile Include="Models\EmsDevice.cs" />
+    <Compile Include="Models\EmsParameter.cs" />
+    <Compile Include="Models\EmsSetting.cs" />
+    <Compile Include="Models\Feedback.cs" />
+    <Compile Include="Models\Floor.cs" />
+    <Compile Include="Models\Log.cs" />
+    <Compile Include="Models\Memo.cs" />
+    <Compile Include="Models\Meter.cs" />
+    <Compile Include="Models\MeterParameter.cs" />
+    <Compile Include="Models\MeterType.cs" />
+    <Compile Include="Models\Parameter.cs" />
+    <Compile Include="Models\ParameterGroup.cs" />
+    <Compile Include="Models\ParameterType.cs" />
+    <Compile Include="Models\Section.cs" />
+    <Compile Include="Models\Setting.cs" />
+    <Compile Include="Models\Template.cs" />
+    <Compile Include="Models\Theme.cs" />
+    <Compile Include="Models\ThemeDetail.cs" />
+    <Compile Include="Models\UIState.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserAction.cs" />
+    <Compile Include="Models\ZoningGroup.cs" />
     <Compile Include="ValidationRules\ConfirmPasswordValidationRule.cs" />
     <Compile Include="ValidationRules\ConfirmPasswordValidationRuleBindingProxy.cs" />
     <Compile Include="ValidationRules\ConfirmPasswordValidationRuleWrapper.cs" />
     <Compile Include="ValidationRules\NotEmptyValidationRule.cs" />
     <Compile Include="ValidationRules\OnlyDigitsValidationRule.cs" />
     <Compile Include="ValidationRules\OnlyFloatingPointNumbersValidationRule.cs" />
+    <Compile Include="VeiwModels\ViewAboutViewModel.cs" />
+    <Compile Include="VeiwModels\ViewAccountsViewModel.cs" />
+    <Compile Include="VeiwModels\ViewAddAccountViewModel.cs" />
+    <Compile Include="VeiwModels\ViewAnalysisViewModel.cs" />
+    <Compile Include="VeiwModels\ViewConfigurationViewModel.cs" />
+    <Compile Include="VeiwModels\ViewDashboardViewModel.cs" />
+    <Compile Include="VeiwModels\ViewLoginViewModel.cs" />
+    <Compile Include="VeiwModels\ViewMainWindowViewModel.cs" />
+    <Compile Include="VeiwModels\ViewRegisterMeterViewModel.cs" />
     <Compile Include="Views\ViewAbout.xaml.cs">
       <DependentUpon>ViewAbout.xaml</DependentUpon>
     </Compile>
@@ -210,6 +256,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201906020859591_EMS_DesktopClient.resx">
+      <DependentUpon>201906020859591_EMS_DesktopClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -225,7 +274,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Converters\" />
-    <Folder Include="VeiwModels\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\home.png" />
