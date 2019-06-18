@@ -22,6 +22,12 @@ namespace EMS_DesktopClient.Models
 
         private string name;
         private string serialNumber;
+        private string make;
+        private string physicalLocation;
+        private string assignedLocation;
+        private string communicationMethod;
+        private string serialCommunicationSetting;
+        private DateTime registrationDate;
         private string notes;
 
         private bool isDeleted;
@@ -90,6 +96,42 @@ namespace EMS_DesktopClient.Models
         {
             get { return this.serialNumber; }
             set { SetProperty(ref this.serialNumber, value, "SerialNumber"); }
+        }
+        [Column(name: "Make", TypeName = "NVARCHAR(MAX)")]
+        public string Make
+        {
+            get { return this.make; }
+            set { SetProperty(ref this.make, value, "Make"); }
+        }
+        [Column(name: "PhysicalLocation", TypeName = "NVARCHAR(MAX)")]
+        public string PhysicalLocation
+        {
+            get { return this.physicalLocation; }
+            set { SetProperty(ref this.physicalLocation, value, "PhysicalLocation"); }
+        }
+        [Column(name: "AssignedLocation", TypeName = "NVARCHAR(MAX)")]
+        public string AssignedLocation
+        {
+            get { return this.assignedLocation; }
+            set { SetProperty(ref this.assignedLocation, value, "AssignedLocation"); }
+        }
+        [Column(name: "CommunicationMethod", TypeName = "NVARCHAR(MAX)")]
+        public string CommunicationMethod
+        {
+            get { return this.communicationMethod; }
+            set { SetProperty(ref this.communicationMethod, value, "CommunicationMethod"); }
+        }
+        [Column(name: "SerialCommunicationSetting", TypeName = "NVARCHAR(MAX)")]
+        public string SerialCommunicationSetting
+        {
+            get { return this.serialCommunicationSetting; }
+            set { SetProperty(ref this.serialCommunicationSetting, value, "SerialCommunicationSetting"); }
+        }
+        [Column(name: "RegistrationDate", TypeName = "DATETIME")]
+        public DateTime RegistrationDate
+        {
+            get { return this.registrationDate; }
+            set { SetProperty(ref this.registrationDate, value, "RegistrationDate"); }
         }
         [Column(name: "Notes", TypeName = "NVARCHAR(MAX)")]
         public string Notes

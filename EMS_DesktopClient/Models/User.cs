@@ -14,10 +14,19 @@ namespace EMS_DesktopClient.Models
         #region Private Fields
 
         private int id;
+        private int userTypeID;
 
         private string name;
         private string username;
         private string password;
+        private string gender;
+        private string address;
+        private string phone;
+        private string mobile;
+        private string email;
+        private string otherInformation;
+
+        private UserType userType;
 
         #endregion
 
@@ -29,6 +38,13 @@ namespace EMS_DesktopClient.Models
         {
             get { return this.id; }
             set { SetProperty(ref this.id, value, "ID"); }
+        }
+        [ForeignKey("UserType")]
+        [Column(name: "UserTypeID", TypeName = "INT")]
+        public int UserTypeID
+        {
+            get { return this.userTypeID; }
+            set { SetProperty(ref this.userTypeID, value, "UserTypeID"); }
         }
 
         [Column(name: "Name", TypeName = "NVARCHAR(MAX)")]
@@ -49,7 +65,48 @@ namespace EMS_DesktopClient.Models
             get { return this.password; }
             set { SetProperty(ref this.password, value, "Password"); }
         }
+        [Column(name: "Gender", TypeName = "NVARCHAR(MAX)")]
+        public string Gender
+        {
+            get { return this.gender; }
+            set { SetProperty(ref this.gender, value, "Gender"); }
+        }
+        [Column(name: "Address", TypeName = "NVARCHAR(MAX)")]
+        public string Address
+        {
+            get { return this.address; }
+            set { SetProperty(ref this.address, value, "Address"); }
+        }
+        [Column(name: "Phone", TypeName = "NVARCHAR(MAX)")]
+        public string Phone
+        {
+            get { return this.phone; }
+            set { SetProperty(ref this.phone, value, "Phone"); }
+        }
+        [Column(name: "Mobile", TypeName = "NVARCHAR(MAX)")]
+        public string Mobile
+        {
+            get { return this.mobile; }
+            set { SetProperty(ref this.mobile, value, "Mobile"); }
+        }
+        [Column(name: "Email", TypeName = "NVARCHAR(MAX)")]
+        public string Email
+        {
+            get { return this.email; }
+            set { SetProperty(ref this.email, value, "Email"); }
+        }
+        [Column(name: "OtherInformation", TypeName = "NVARCHAR(MAX)")]
+        public string OtherInformation
+        {
+            get { return this.otherInformation; }
+            set { SetProperty(ref this.otherInformation, value, "OtherInformation"); }
+        }
 
+        public virtual UserType UserType
+        {
+            get { return this.userType; }
+            set { SetProperty(ref this.userType, value, "UserType"); }
+        }
         public virtual ICollection<UserAction> UserActions { get; set; }
 
         #endregion

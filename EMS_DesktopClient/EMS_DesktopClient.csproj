@@ -57,6 +57,9 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.1.1345, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.2.5.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Prism, Version=7.1.0.431, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.Core.7.1.0.431\lib\net45\Prism.dll</HintPath>
     </Reference>
@@ -97,12 +100,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Behaviors\DragBehavior.cs" />
+    <Compile Include="Converters\StaticResourceConverter.cs" />
+    <Compile Include="Events\InformationRequestEvent.cs" />
+    <Compile Include="Events\InformationResponseEvent.cs" />
+    <Compile Include="Events\NavigationRequestEvent.cs" />
+    <Compile Include="Events\NavigationResponseEvent.cs" />
+    <Compile Include="Events\NotificationEvent.cs" />
     <Compile Include="Helpers\PasswordHelper.cs" />
-    <Compile Include="Migrations\201906020859591_EMS_DesktopClient.cs" />
-    <Compile Include="Migrations\201906020859591_EMS_DesktopClient.Designer.cs">
-      <DependentUpon>201906020859591_EMS_DesktopClient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ActionType.cs" />
     <Compile Include="Models\Advertisement.cs" />
     <Compile Include="Models\AdvertisementImage.cs" />
@@ -136,7 +141,17 @@
     <Compile Include="Models\UIState.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserAction.cs" />
+    <Compile Include="Models\UserType.cs" />
     <Compile Include="Models\ZoningGroup.cs" />
+    <Compile Include="Services\DialogService.cs" />
+    <Compile Include="Services\ExcelService.cs" />
+    <Compile Include="Services\ExcelType.cs" />
+    <Compile Include="Services\ExportPDFOptions.cs" />
+    <Compile Include="Services\ExportPDFService.cs" />
+    <Compile Include="Services\ExportPDFType.cs" />
+    <Compile Include="Services\IDialogService.cs" />
+    <Compile Include="Services\IExcelService.cs" />
+    <Compile Include="Services\IExportPDFService.cs" />
     <Compile Include="ValidationRules\ConfirmPasswordValidationRule.cs" />
     <Compile Include="ValidationRules\ConfirmPasswordValidationRuleBindingProxy.cs" />
     <Compile Include="ValidationRules\ConfirmPasswordValidationRuleWrapper.cs" />
@@ -151,6 +166,7 @@
     <Compile Include="VeiwModels\ViewDashboardViewModel.cs" />
     <Compile Include="VeiwModels\ViewLoginViewModel.cs" />
     <Compile Include="VeiwModels\ViewMainWindowViewModel.cs" />
+    <Compile Include="VeiwModels\ViewMatchingParametersViewModel.cs" />
     <Compile Include="VeiwModels\ViewRegisterMeterViewModel.cs" />
     <Compile Include="Views\ViewAbout.xaml.cs">
       <DependentUpon>ViewAbout.xaml</DependentUpon>
@@ -178,6 +194,9 @@
     </Compile>
     <Compile Include="Views\ViewMainWindow2.xaml.cs">
       <DependentUpon>ViewMainWindow2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewMatchingParameters.xaml.cs">
+      <DependentUpon>ViewMatchingParameters.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewRegisterMeter.xaml.cs">
       <DependentUpon>ViewRegisterMeter.xaml</DependentUpon>
@@ -233,6 +252,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ViewMatchingParameters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ViewRegisterMeter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -256,9 +279,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201906020859591_EMS_DesktopClient.resx">
-      <DependentUpon>201906020859591_EMS_DesktopClient.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -273,10 +293,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Converters\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\home.png" />
+    <Resource Include="Resources\Images\BothGender.png" />
+    <Resource Include="Resources\Images\Female.png" />
+    <Resource Include="Resources\Images\Male.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\home.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

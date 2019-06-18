@@ -19,6 +19,7 @@ namespace EMS_DesktopClient.Models
         private string name;
         private string value;
         private string address;
+        private string notes;
 
         private bool isDeleted;
 
@@ -60,6 +61,12 @@ namespace EMS_DesktopClient.Models
         {
             get { return this.address; }
             set { SetProperty(ref this.address, value, "Address"); }
+        }
+        [Column(name: "Notes", TypeName = "NVARCHAR(MAX)")]
+        public string Notes
+        {
+            get { return this.notes; }
+            set { SetProperty(ref this.notes, value, "Notes"); }
         }
 
         [Column(name: "IsDeleted", TypeName = "BIT")]
